@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Image with Links</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* First Bar: Main Image */
+        .main-image {
+            display: block;
+            width: 100vw;
+            height: 50vh;
+            object-fit: cover;
+        }
+
+        /* Second Bar: Navigation */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        /* Third Bar: Moving Image Gallery */
+        .image-bar {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            width: 100vw;
+            height: 60vh;
+            background-color: #f4f4f4;
+        }
+
+        /* Container for the images */
+        .images-container {
+            display: flex;
+            animation: moveImagesRightToLeft 20s linear, moveImagesLeftToRight 40s linear 20s;
+        }
+
+        .image-bar img {
+            width: 100vw;
+            height: 60vh;
+            object-fit: cover;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+
+        /* Right to Left Marquee Effect */
+        @keyframes moveImagesRightToLeft {
+            0% {
+                transform: translateX(0); /* Start position (off-screen left) */
+            }
+            100% {
+                transform: translateX(-100%); /* End position (off-screen left) */
+            }
+        }
+
+        /* Slower Left to Right Animation after Marquee */
+        @keyframes moveImagesLeftToRight {
+            0% {
+                transform: translateX(-100%); /* Start position (off-screen left) */
+            }
+            100% {
+                transform: translateX(0); /* End position (in its original place) */
+            }
+        }
+
+        /* Fourth Bar: Text Section (Grey Background) */
+        .text-bar {
+            background-color: #ccc;
+            color: #333;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- First Bar: Main Image -->
+    <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/sc.png" alt="Main Image" class="main-image">
+
+    <!-- Second Bar: Navigation -->
+    <div class="navbar">
+        <a href="#link1">HOME</a>
+        <a href="#link2">ABOUT</a>
+        <a href="#link3">OUR CARE HOMES</a>
+        <a href="#link4">WORKING HOURS</a>
+        <a href="#link5">NEWS & EVENTS</a>
+        <a href="#link6">CONTACT US</a>
+    </div>
+
+    <!-- Third Bar: Moving Image Gallery -->
+    <div class="image-bar">
+        <div class="images-container">
+            <!-- Original images -->
+            <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/3.jpg" alt="Image 1">
+            <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/4.jpg" alt="Image 2">
+            <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/5.jpg" alt="Image 3">
+        </div>
+    </div>
+
+    <!-- Fourth Bar: Text Section (Grey Background) -->
+    <div class="text-bar">
+        <p>
+            Larchwood Care is a leading provider of care homes for the elderly in England and Scotland. 
+            Our homely environments offer value for money without compromising on care, companionship or compassion. 
+            With a reputation built around exceptional nursing, dementia, and residential care standards, 
+            we invite you to discover a Larchwood Care home near you.
+        </p>
+    </div>
+</body>
+</html>

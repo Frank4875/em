@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EM Care Services</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* First Bar: Blue Background with Centered Logo */
+        .main-image {
+            display: flex;
+            width: 100%;
+            height: 25%;
+            background-color: cyan;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-image img {
+            max-width: 10%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Second Bar: Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-evenly;
+            background-color: #333;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        /* Third Bar: Moving Image Gallery */
+        .image-bar {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 50%;
+            background-color: #f4f4f4;
+        }
+
+        .images-container {
+            display: flex;
+            animation: moveImagesRightToLeft 20s linear infinite;
+        }
+
+        .image-bar img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        @keyframes moveImagesRightToLeft {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Fourth Bar: Text Section (Grey Background) */
+        .text-bar {
+            background-color: #ccc;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.6;
+            width: 100%;
+        }
+
+        /* Fifth Bar: Feature Section */
+        .feature-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .feature-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .feature-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .feature-overlay {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .feature-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .feature-text h2 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .feature-text p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .feature-text a {
+            font-size: 1rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .feature-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Horizontal Section */
+        .horizontal-section {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: #f4f4f4;
+            padding: 15px 0;
+            border-top: 1px solid #ccc;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .horizontal-item {
+            text-align: center;
+            padding: 10px;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        /* Sixth Bar */
+        .gap-bar {
+            height: 20px;
+            background-color: #f9f9f9;
+        }
+
+        /* Seventh Bar: Contact Information with Vertical Lines */
+        .contact-bar {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .contact-item {
+            flex: 1;
+            padding: 10px;
+            position: relative;
+        }
+
+        .contact-item:not(:last-child) {
+            border-right: 1px solid #ddd;
+        }
+
+        .contact-item h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .contact-item p {
+            margin: 5px 0 0;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Eighth Bar: Split Content with Light Green Background */
+        .split-bar {
+            display: flex;
+            background-color: palegoldenrod;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .split-item {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #333;
+            border-radius: 10px;
+        }
+
+        .split-item.left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 15px; /* Rounded corners */
+            background-color: #fff; /* Optional: background color for the text box */
+            padding: 20px; /* Padding to create space inside the box */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: shadow for better contrast */
+        }
+
+        .split-item.right {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #333;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .split-item.right img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Ninth Bar */
+        .ninth-bar {
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 20px;
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .ninth-bar img {
+            width: 50%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- First Bar -->
+    <div class="main-image">
+        <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/logo.png" alt="Logo">
+    </div>
+
+    <!-- Second Bar -->
+    <div class="navbar">
+        <a href="#link1">HOME</a>
+        <a href="#link2">OUR SERVICES</a>
+        <a href="#link3">THE PROCESS OF BECOMING OUR CLIENT</a>
+        <a href="#link4">ABOUT US</a>
+        <a href="#link5">MORE</a>
+        <a href="#link6">CONTACT US</a>
+    </div>
+
+    <!-- Third Bar -->
+    <div class="image-bar">
+        <div class="images-container">
+            <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/3.jpg" alt="Image 1">
+            <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/4.jpg" alt="Image 2">
+            <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/5.jpg" alt="Image 3">
+        </div>
+    </div>
+
+    <!-- Fourth Bar -->
+    <div class="text-bar">
+        <p>
+            Providing Home Care Services to age bands 18 Years to 65 Years and 65 Years and above
+        </p>
+    </div>
+
+    <!-- Fifth Bar -->
+    <div class="feature-bar">
+        <div class="feature-item">
+            <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/manager.png" alt="Featured Manager">
+            <div class="feature-overlay">
+                <h3>FEATURED MANAGER</h3>
+                <p>Esther Mungai</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/house.jpg" alt="Explore Dungate Manor">
+            <div class="feature-overlay">
+                <h3>20 ORTON ROAD KETTERING</h3>
+                <p>Featured Home Care</p>
+            </div>
+        </div>
+        <div class="feature-item feature-text">
+            <h2>VISITING LOVED ONES</h2>
+            <p>
+                Family and friends are as important to us as they are to our residents. 
+                We work hard to ensure that you can enjoy quality time and celebrate 
+                special moments with loved ones in Larchwood Care Homes.
+            </p>
+            <a href="#read-more">Read more</a>
+        </div>
+    </div>
+
+    <!-- Sixth Bar -->
+    <div class="horizontal-section">
+        <div class="horizontal-item">Stunning Grounds</div>
+        <div class="horizontal-item">Free Wifi</div>
+        <div class="horizontal-item">Home Cooked Food</div>
+        <div class="horizontal-item">Free Parking</div>
+    </div>
+    <div class="gap-bar"></div>
+
+    <!-- Seventh Bar -->
+    <div class="contact-bar">
+        <div class="contact-item">
+            <h4>Email:</h4>
+            <p>enquiries@emcareservices.co.uk</p>
+        </div>
+        <div class="contact-item">
+            <h4>Telephone:</h4>
+            <p>0745 .......</p>
+        </div>
+        <div class="contact-item">
+            <h4>Address:</h4>
+            <p>
+                Northamptonshire, Kettering, 20 Orton Road, Barton Seagrave,<br>
+                NN15 6UJ
+            </p>
+        </div>
+    </div>
+
+    <!-- Eighth Bar -->
+    <div class="split-bar">
+        <div class="split-item left">
+            <h3>YOUR SAFE CARE IS AT THE HEART OF EVERYTHING WE DO</h3>
+            <p>
+                <b>Warmly Welcoming New Residents</b><br>
+                With a warm, home-from-home welcome, in the safest surroundings possible, you can trust us to provide the very best quality of care and companionship. Every Larchwood Care home is staffed by a diligent, caring and trustworthy team who have each resident and their family’s happiness as a core priority.
+            </p>
+            <p>
+                <b>Easing Your Concerns</b><br>
+                Our teams have the experience and training to understand the challenges that you may be facing, so we know how to help. From flexibility and full support during the moving in process to our relaxed approach to visiting, we are ready to help you find the perfect care home for your loved one.
+            </p>
+            <p><b>Find a Larchwood Care Home Near You</b></p>
+        </div>
+        <div class="split-item right">
+            <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/3.jpg" alt="Care Home Image">
+        </div>
+    </div>
+
+    <!-- Ninth Bar -->
+    <div class="ninth-bar">
+        <h3>Our Care Homes</h3>
+        <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/house.jpg" alt="Care Homes Overview">
+        <p>
+            Explore the best care homes available, offering stunning grounds, home-cooked meals, and a sense of community. Find the perfect fit for your loved ones.
+        </p>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+<!-- Tenth Bar -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larchwood Care</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+        }
+        .content {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .content img {
+            max-width: 50%;
+            border-radius: 8px;
+        }
+        .text {
+            flex: 1;
+        }
+        .text h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .text p {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .services h3 {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>WE GO TO GREAT LENGTHS TO MAKE EVERYONE'S STAY TRULY ENJOYABLE</h1>
+        </div>
+        <div class="content">
+            <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/6.jpg" alt="Care assistant with resident">
+            <div class="text">
+                <h2>We Make It Personal</h2>
+                <p>Larchwood Care has care homes across the UK, which are either purpose-built or thoughtfully converted into industry-leading care homes. Our vibrant communities provide the perfect opportunity for you to enhance your quality of life and enjoy the way you wish to live.</p>
+                <div class="services">
+                    <h3>Residential Care</h3>
+                    <p>Expert staff provide support on every level you may require, be it companionship to formal care. Such packages are led by a Senior Carer who will, with your involvement, devise a bespoke package that assesses all of your needs.</p>
+
+                    <h3>Nursing Care</h3>
+                    <p>Our nursing care packages are led by a qualified Nurse who, with your involvement, will develop your healthcare plans. They are supported by a team of care staff who will assist you to meet all your personal care needs.</p>
+
+                    <h3>Respite Care</h3>
+                    <p>You can stay for as long as you like, or for a little relaxation, reset and recovery. We offer flexible respite stays tailored to your individual needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Eleventh Bar -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larchwood Care</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4169E1;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .column {
+            flex: 1;
+            min-width: 250px;
+            margin: 20px;
+        }
+        .column h3 {
+            font-size: 20px;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 8px;
+        }
+        .column ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        .column ul li {
+            margin: 8px 0;
+        }
+        .column ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .column ul li a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .footer a {
+            color: #8fbc8f;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .column p {
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Links Section -->
+        <div class="column">
+            <h3>Links</h3>
+            <ul>
+                <li>
+                    <strong>Gender Pay Gap Reports</strong>
+                    <ul>
+                        <li><a href="#">Larchwood North</a></li>
+                        <li><a href="#">Larchwood South</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Modern Slavery Statement</strong>
+                    <ul>
+                        <li><a href="#">Larchwood North 2024</a></li>
+                        <li><a href="#">Larchwood South 2024</a></li>
+                        <li><a href="#">Previous Years</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+            </ul>
+        </div>
+
+        <!-- Head Office Section -->
+        <div class="column">
+            <h3>Head Office</h3>
+            <p>
+                Larchwood Care<br>
+                Drakes Court<br>
+                302 Alcester Road<br>
+                Wythall<br>
+                Birmingham<br>
+                B47 6JR<br>
+            </p>
+            <p>
+                <strong>Phone:</strong> 01564 820140<br>
+                <strong>Email:</strong> <a href="mailto:enquiries@larchwoodcare.co.uk">enquiries@larchwoodcare.co.uk</a>
+            </p>
+        </div>
+
+        <!-- Working Hours Section -->
+        <div class="column">
+            <h3>Working Hours</h3>
+            <p>
+                Our Head Office can be contacted during working hours on:<br>
+                <strong>01564 820140</strong>
+            </p>
+            <p>
+                <strong>Monday - Friday:</strong> 9am - 5pm<br>
+                <strong>Saturday, Sunday, and Bank Holidays:</strong> Closed
+            </p>
+            <p>
+                Our care homes are open 24 hours a day, 7 days a week. Please go to the home search to find the contact number.
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        © Copyright 2022 Larchwood Care. All rights reserved. Registered in England and Wales | 
+        Company Number: 07747136 / 06883079<br>
+        Managed by <a href="#">Healthcare Management Solutions</a>
+    </div>
+</body>
+</html>

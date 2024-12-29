@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Image with Links</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* First Bar: Blue Background with Centered Logo */
+        .main-image {
+            display: flex;
+            width: 100%;
+            height: 25%; /* Adjusted height for better fit */
+            background-color: cyan;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-image img {
+            max-width: 30%; /* Scales the logo properly */
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Second Bar: Navigation */
+        .navbar {
+            display: flex;
+            justify-content: space-evenly;
+            background-color: #333;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        /* Third Bar: Moving Image Gallery */
+        .image-bar {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 50%;
+            background-color: #f4f4f4;
+        }
+
+        /* Container for the images */
+        .images-container {
+            display: flex;
+            animation: moveImagesRightToLeft 20s linear infinite;
+        }
+
+        .image-bar img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        /* Right to Left Marquee Effect */
+        @keyframes moveImagesRightToLeft {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Fourth Bar: Text Section (Grey Background) */
+        .text-bar {
+            background-color: #ccc;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.6;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- First Bar: Blue Background with Centered Logo -->
+    <div class="main-image">
+        <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/logo.png" alt="Logo">
+    </div>
+
+    <!-- Second Bar: Navigation -->
+    <div class="navbar">
+        <a href="#link1">HOME</a>
+        <a href="#link2">OUR SERVICES</a>
+        <a href="#link3">THE PROCESS OF BECOMING OUR CLIENT</a>
+        <a href="#link4">ABOUT US</a>
+        <a href="#link5">MORE</a>
+        <a href="#link6">CONTACT US</a>
+    </div>
+
+    <!-- Third Bar: Moving Image Gallery -->
+    <div class="image-bar">
+        <div class="images-container">
+            <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/3.jpg" alt="Image 1">
+            <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/4.jpg" alt="Image 2">
+            <img src="file:///C:/Users/njugi/OneDrive/Documents/em%20care%20services/5.jpg" alt="Image 3">
+        </div>
+    </div>
+
+    <!-- Fourth Bar: Text Section (Grey Background) -->
+    <div class="text-bar">
+        <p>
+            Providing Home Care Services to age bands 18 Years to 65 Years and 65 Years and above
+
+        </p>
+    </div>
+</body>
+</html>
